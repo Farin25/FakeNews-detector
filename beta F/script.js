@@ -3,9 +3,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const textArea = document.getElementById("articleText");
   const analyzeButton = document.getElementById("analyzeButton");
-  const imageUpload = document.getElementById("imageUpload");
-  const imagePreview = document.getElementById("imagePreview");
-  const imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
   const noResultHint = document.getElementById("noResultHint");
   const resultContent = document.getElementById("resultContent");
@@ -16,32 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const realBar = document.getElementById("realBar");
   const flagsList = document.getElementById("flagsList");
   const confidenceHint = document.getElementById("confidenceHint");
-
-  // Bild-Vorschau (nur Anzeige, keine Analyse)
-  imageUpload.addEventListener("change", (e) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) {
-      imagePreview.src = "";
-      imagePreview.style.display = "none";
-      showImagePlaceholder(true);
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      imagePreview.src = event.target.result;
-      imagePreview.style.display = "block";
-      showImagePlaceholder(false);
-    };
-    reader.readAsDataURL(file);
-  });
-
-  function showImagePlaceholder(show) {
-    const placeholder = imagePreviewContainer.querySelector(".image-placeholder");
-    if (placeholder) {
-      placeholder.style.display = show ? "block" : "none";
-    }
-  }
 
   // Button-Click: Text analysieren
   analyzeButton.addEventListener("click", () => {
@@ -94,7 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function analyzeTextForFakeNews(text) {
     const lower = text.toLowerCase();
     const length = text.length;
-    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    const words = text.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
 
     let fakeScore = 0;
     let realScore = 0;
@@ -135,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Reißerische Sprache erkannt (${sensationalHits} typische Schlagwort(e)).`,
+        message: `Reißerische / emotionale Sprache erkannt (${sensationalHits} typische Schlagwort(e)).`,
       });
     }
 
@@ -150,8 +122,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 3. CAPSLOCK-Wörter (mindestens 4 Zeichen)
-    const words = text.split(/\s+/);
+    // 3. Mischformen ?! oder !?
+    const comboPunct = (text.match(/\?!|!\?/g) || []).length;
+    if (comboPunct >= 1) {
+      const points = Math.min(8, comboPunct * 3);
+      fakeScore += points;
+      flags.push({
+        type: "fake",
+        message: `Kombinationen wie „?!“ deuten auf starke Emotionalisierung hin (${comboPunct}x).`,
+      });
+    }
+
+    // 4. CAPSLOCK-Wörter (mindestens 4 Zeichen)
     const capsWords = words.filter((w) => {
       const cleaned = w.replace(/[^A-Za-zÄÖÜäöüß]/g, "");
       return cleaned.length >= 4 && cleaned === cleaned.toUpperCase();
@@ -166,20 +148,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 4. Starke Polarisierung / Feindbildsprache
+    // 5. Polarisierende / Feindbildsprache
     const polarizingKeywords = [
       "die da oben",
       "elite",
       "volk",
       "verraten",
       "verrat",
-      "lügen",
       "betrügen",
       "marionetten",
       "system",
       "schuld",
       "volksverräter",
       "böse",
+      "feind",
     ];
     let polarHits = 0;
     polarizingKeywords.forEach((kw) => {
@@ -190,11 +172,33 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Stark polarisierende Sprache (${polarHits} Begriff(e)) entdeckt.`,
+        message: `Stark Feindbildige Sprache (${polarHits} Begriff(e)) entdeckt.`,
       });
     }
 
-    // 5. Fehlende Struktur / extrem kurz
+    // 6. Vage Quellenangaben (wirken unseriös)
+    const vagueSourcePatterns = [
+      "man sagt",
+      "angeblich",
+      "gerüchten zufolge",
+      "ich habe gehört",
+      "es heißt",
+      "viele sagen",
+    ];
+    let vagueHits = 0;
+    vagueSourcePatterns.forEach((kw) => {
+      if (lower.includes(kw)) vagueHits++;
+    });
+    if (vagueHits > 0) {
+      const points = Math.min(12, vagueHits * 4);
+      fakeScore += points;
+      flags.push({
+        type: "fake",
+        message: `Vage oder unkonkrete Quellenangaben gefunden (${vagueHits}) – kein klarer nachweis.`,
+      });
+    }
+
+    // 7. Fehlende Struktur / extrem kurz
     if (wordCount < 25) {
       fakeScore += 8;
       flags.push({
@@ -204,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 6. Seriöse Indikatoren: Quellen, Daten, Nüchternheit
+    // 8. Seriöse Indikatoren: Quellen, Daten, Nüchternheit
     const sourceIndicators = [
       "quelle:",
       "laut",
@@ -219,6 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "daten von",
       "zitiert",
       "berichtete",
+      "faktencheck",
+      "dpa",
+      "reuters",
+      "ap news",
     ];
 
     let sourceHits = 0;
@@ -227,15 +235,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (sourceHits > 0) {
-      const points = Math.min(20, sourceHits * 4);
+      const points = Math.min(22, sourceHits * 4);
       realScore += points;
       flags.push({
         type: "real",
-        message: `Hinweise auf Quellen / Studien (${sourceHits} Treffer) gefunden.`,
+        message: `Hinweise auf Quellen / Studien / Faktencheck (${sourceHits} Treffer) gefunden.`,
       });
     }
 
-    // 7. Zahlen und Daten (wir werten das leicht positiv)
+    // 9. Zahlen und Daten (leicht positiv)
     const numberMatches = text.match(/\d{2,4}/g) || [];
     if (numberMatches.length > 0) {
       const points = Math.min(10, numberMatches.length * 1.5);
@@ -246,7 +254,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 8. Sachlichere Sprache – wenig Ausrufezeichen, kaum CAPS
+    // 10. Links / URLs (minimal positiv gewertet)
+    const urlMatches = text.match(/https?:\/\/[^\s]+/g) || [];
+    if (urlMatches.length > 0) {
+      realScore += 4;
+      flags.push({
+        type: "real",
+        message:
+          "Es wurden Links / URLs gefunden – das kann auf weiterführende Quellen hinweisen.",
+      });
+    }
+
+    // 11. Nüchterne Sprache – wenig Ausrufezeichen, kaum CAPS
     if (exclamations === 0 && capsWords.length <= 1) {
       realScore += 8;
       flags.push({
@@ -256,39 +275,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // 9. Umfangreicher Text
+    // 12. Umfangreicher Text
     if (wordCount > 200) {
       realScore += 5;
       flags.push({
         type: "real",
         message:
-          "Relativ langer Text – längere Berichte sind eher Kontext-basiert (können aber trotzdem Falschinformationen enthalten).",
+          "Relativ langer Text – längere Berichte sind eher kontextbasiert (können aber trotzdem Falschinformationen enthalten).",
       });
     }
 
-    // 10. Clickbait-Muster in Überschrift
+    // 13. Clickbait-Muster in der Überschrift
     const firstLine = text.split(/\n/)[0].toLowerCase();
     const clickbaitPatterns = [
-      "du wirst nicht glauben",
-      "nummer 3 wird dich schockieren",
-      "was dann passierte",
-      "so etwas hast du noch nie gesehen",
+      "krass",
+      "unglaublich",
+      "mindblock",
+      "kaum zu glauben",
+      "sprachlos",
     ];
-    let clickbaitHit = clickbaitPatterns.some((p) => firstLine.includes(p));
+    const clickbaitHit = clickbaitPatterns.some((p) => firstLine.includes(p));
     if (clickbaitHit) {
       fakeScore += 12;
       flags.push({
         type: "fake",
         message:
-          "Typisches Clickbait-Muster in der Überschrift erkannt („Du wirst nicht glauben…“ etc.).",
+          "Auffällige Überschrift  Wörter",
       });
     }
 
     // Score-Normalisierung
     // Basis 50/50, Fake erhöht fakeScore, Real erhöht realScore.
     let combinedScore = fakeScore - realScore; // >0 = eher Fake, <0 = eher real
-    // Begrenzen, damit es nicht völlig eskaliert
-    combinedScore = Math.max(-40, Math.min(40, combinedScore));
+    combinedScore = Math.max(-40, Math.min(40, combinedScore)); // begrenzen
 
     let fakePercent = Math.round(50 + combinedScore);
     let realPercent = 100 - fakePercent;
