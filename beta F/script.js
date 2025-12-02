@@ -178,12 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 6. Vage Quellenangaben (wirken unseriös)
     const vagueSourcePatterns = [
-      "man sagt",
-      "angeblich",
-      "gerüchten zufolge",
-      "ich habe gehört",
-      "es heißt",
-      "viele sagen",
+  c
     ];
     let vagueHits = 0;
     vagueSourcePatterns.forEach((kw) => {
@@ -250,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
       realScore += points;
       flags.push({
         type: "real",
-        message: `Zahlen / Daten im Text erkannt (${numberMatches.length}). Das kann auf eine sachliche Darstellung hindeuten – muss aber nicht.`,
+        message: `Zahlen / Daten im Text erkannt (${numberMatches.length} Treffer). Das kann auf eine sachliche Darstellung hindeuten – muss aber nicht.`,
       });
     }
 

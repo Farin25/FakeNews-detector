@@ -263,7 +263,41 @@ textarea:focus {
   color: var(--text-muted);
 }
 
-/* Responsiv */
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 50px;
+}
+
+.carousel {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.carousel-item {
+  flex: none;
+  padding: 10px 50px;
+  font-size: 18px;
+  white-space: nowrap;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  margin-right: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
 
 @media (max-width: 640px) {
   .page-header {
