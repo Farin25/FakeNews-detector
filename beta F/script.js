@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   analyzeButton.addEventListener("click", () => {
     const text = (textArea.value || "").trim();
     if (!text) {
-      alert("Bitte zuerst einen Text einfügen.");
+      alert(" Erst Text einfügen.");
       return;
     }
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Reißerische / emotionale Sprache erkannt (${sensationalHits} typische Schlagwort(e)).`,
+        message: `Reißerische / emotionale Sprache erkannt. (${sensationalHits} Treffer.`,
       });
     }
 
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Viele Ausrufezeichen (${exclamations}) – kann auf emotionalisierte Inhalte hinweisen.`,
+        message: `Viele Ausrufezeichen (${exclamations}) Treffer. erkannt – kann auf emotionalisierte Inhalte hinweisen.`,
       });
     }
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Kombinationen wie „?!“ deuten auf starke Emotionalisierung hin (${comboPunct}x).`,
+        message: `Kombinationen wie „?!“ endeckt ${comboPunct} Treffer. Deuten auf starke Emotionalisierung hin. `,
       });
     }
 
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Viele komplett großgeschriebene Wörter (${capsWords.length}) – mögliches Anzeichen für Clickbait.`,
+        message: `Viele komplett großgeschriebene Wörter endeckt (${capsWords.length}) Treffer. Deutet auf Übertreibung hin`,
       });
     }
 
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Stark Feindbildige Sprache (${polarHits} Begriff(e)) entdeckt.`,
+        message: `Stark Feindbildige Sprache (${polarHits} Begriffe entdeckt.`,
       });
     }
 
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fakeScore += points;
       flags.push({
         type: "fake",
-        message: `Vage oder unkonkrete Quellenangaben gefunden (${vagueHits}) – kein klarer nachweis.`,
+        message: `Vage oder inkorrekte Quellenangaben gefunden (${vagueHits}) Treffer – kein klarer nachweis.`,
       });
     }
 
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flags.push({
         type: "fake",
         message:
-          "Sehr kurzer Text – Schlagzeilen ohne Kontext sind oft irreführend.",
+          "Sehr kurzer Text – Wenig informationne oft irreführend.",
       });
     }
 
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
       realScore += points;
       flags.push({
         type: "real",
-        message: `Hinweise auf Quellen / Studien / Faktencheck (${sourceHits} Treffer) gefunden.`,
+        message: `Hinweise auf Quellen gefunden (${sourceHits} Treffer) gefunden.`,
       });
     }
 
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flags.push({
         type: "real",
         message:
-          "Es wurden Links / URLs gefunden – das kann auf weiterführende Quellen hinweisen.",
+          "Es wurden Links oder URLs gefunden – das kann auf Weiterfürende Quellen hinweisen.",
       });
     }
 
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flags.push({
         type: "real",
         message:
-          "Wenig bis keine Ausrufezeichen und kaum Großschreibung – wirkt sprachlich eher nüchtern.",
+          "wenig oder keine Ausrufezeichen. Ist nicht so übertrieben.",
       });
     }
 
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flags.push({
         type: "real",
         message:
-          "Relativ langer Text – längere Berichte sind eher kontextbasiert (können aber trotzdem Falschinformationen enthalten).",
+          " längere Berichte sind eher kontextbasiert (könnten aber trotzdem falsche Informationen enthalten).",
       });
     }
 
@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flags.push({
         type: "fake",
         message:
-          "Auffällige Überschrift  Wörter",
+          "Auffällige Wörter die auf clickbait hinweisen.",
       });
     }
 
@@ -329,27 +329,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const { fakePercent, wordCount } = analysis;
 
     let baseText =
-      "Das Ergebnis ist nur eine heuristische Einschätzung und ersetzt keinen Faktencheck.";
+      "Das Ergebnis ist nur eine heuristische Einschätzung und ersetzt keinen Gesunden Menschenverstand und auch keine gründliche Recherche.";
 
     let tendency;
     if (fakePercent > 70) {
       tendency =
-        "Der Text zeigt mehrere starke Warnsignale. Besonders kritisch prüfen und weitere Quellen heranziehen.";
+        "Der Text zeigt viele anzeichen dafür das er nicht echt ist. Am besten besser prüfen und vorsichtig beim Teilen oder verbreiten.";
     } else if (fakePercent > 55) {
       tendency =
-        "Der Text wirkt in Teilen reißerisch oder auffällig. Mit Vorsicht genießen und Fakten nachprüfen.";
+        "Der Text wikt Teilweise auffälig oder unserös kritisch bleiben und genauer prüfen. ";
     } else if (fakePercent < 30) {
       tendency =
-        "Der Text wirkt sprachlich eher seriös. Trotzdem können Inhalte falsch oder verzerrt sein – bitte weiterhin kritisch bleiben.";
+        "Der Text wirkt vertrauenswürdig und seriös. trotzdem immer kritisch bleiben und genau prüfen.";
     } else {
       tendency =
-        "Der Text liegt im mittleren Bereich – weder klar unauffällig noch extrem reißerisch. Kontext und externe Quellen sind hier besonders wichtig.";
+        "Der Text liegt im mittleren bereicch. hier ist es besonders wichtig den text genauer zu prüfen und zu rechahieren.";
     }
 
     let lengthNote = "";
     if (wordCount < 40) {
       lengthNote =
-        " Hinweis: Sehr kurze Texte (nur Überschrift oder ein Satz) lassen sich nur schwer zuverlässig einschätzen.";
+        " Hinweis: Sher kurtze Texten können nicht so zuverlässig und genau geprüft werden. ";
     }
 
     return `${tendency} ${baseText}${lengthNote}`;

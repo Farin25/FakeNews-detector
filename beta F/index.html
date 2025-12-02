@@ -8,11 +8,10 @@
 </head>
 <body>
   <header class="page-header">
-    <h1>🕵️‍♂️ FakeDetector</h1>
+    <h1>The Fake detector</h1>
     <p class="page-subtitle">
-      Einfache clientseitige Heuristik zur Einschätzung von möglichen Fake News.
-      Kein echter Faktencheck – bitte immer selbst weiterprüfen.
-    </p>
+      Eine einfache Analyse für die leichte einschätzung ob der Artikel echt ist oder nicht.<br><br>
+      <strong>Disclaimer:</strong> Der Fake detector ersetzt keinen gesunden Menschnverstand und auch keine gründliche Recherche</p>
   </header>
 
   <main class="page-main">
@@ -29,7 +28,7 @@
       ></textarea>
 
       <p class="helper-text">
-        Tipp: Je mehr Kontext (Überschrift + ein paar Absätze), desto sinnvoller die Einschätzung.
+       <strong>Tipp:</strong>  Je mehr Text desso besser ist das Ergebniss der analyse.
       </p>
 
       <button id="analyzeButton" class="primary-button">
@@ -37,8 +36,9 @@
       </button>
 
       <p class="disclaimer">
-        ⚠️ Dieses Tool ist <strong>kein echter Faktencheck</strong>.
-        Es arbeitet nur mit sprachlichen Mustern und liefert eine grobe Einschätzung.
+        <str>
+         <strong>Disclaimer:</strong>.
+        Diese Tool ist nur eine einfache Analyse und kann auch fehler machen. Dises Tool ersetzt keinen gesunden Menschnverstand und auch keine gründliche Recherche.
       </p>
     </section>
 
@@ -47,15 +47,14 @@
       <h2>2. Ergebnis</h2>
 
       <div id="noResultHint" class="no-result-hint">
-        Noch kein Text geprüft. Gib oben etwas ein und klicke auf
-        <strong>„Artikel prüfen“</strong>.
+        Nichts zum Prüfen vorhanden. Errst den zu Prüffenden Text einfügen ( Zeitungsartikel oder Social-Media-Post ) dannach auf <strong>„Prüfen“</strong> Drücken oder klicken.
       </div>
 
       <div id="resultContent" class="result-content hidden">
         <!-- Zusammenfassung -->
         <div class="summary-block">
           <p class="summary-line">
-            Einschätzung:
+            Ergebnis:
             <span id="fakePercent" class="summary-fake">0%</span> Fake /
             <span id="realPercent" class="summary-real">0%</span> Echt
           </p>
@@ -70,32 +69,28 @@
 
         <!-- Hinweise / Auffälligkeiten -->
         <div class="flags-section">
-          <h3>Erkannte Hinweise</h3>
+          <h3>Ergebnise</h3>
           <ul id="flagsList" class="flags-list"></ul>
         </div>
 
         <!-- Erklärung -->
         <div class="explanation-section">
-          <h3>Wie wird das berechnet?</h3>
+          <h3>Wie funktioniert der Fake detector?</h3>
           <p>
-            Der FakeDetector sucht nach typischen Mustern von Fake News:
-            reißerische Sprache, viele Ausrufezeichen, übertriebene Großschreibung,
-            Clickbait-Formulierungen, vage Quellen („man sagt“, „angeblich“),
-            aber auch nach Hinweisen auf Seriosität wie Quellenangaben, Zahlen und
-            sachliche Formulierungen.
+          Die Logik der Webseite ist ein Algorithmus der Den Eingegebenen Text nach auffäligkeiten Prüft zum Beispiel wird geprüft ob der Text auffäligkeiten aufzeigt wie zum Beispiel auffälige wörter wie: "Glauben" oder: "Schockieren / Schock". Außer dem wird der ganze Text auf Groß und klein schreibung geprüft, nur groß geschrieben Wörter sind auch sehr auffällig. Was auch auffälig ist sind viele Ausrufezeichen. Der Algorithmus prüft auch ob eine Qelle Angegeben ist oder nicht. Dann wird noch Geprüft ob zum Teilen Aufgerufen wird oder sich widersprechende Fakten im Text sind. Aber es werden auch auffälig keiten Geprüft die darauf hinweisen das der Text Echt und vertrauenswürdig ist wenn der geneteil der fall ist wie von den Anzeichen für Fake.
           </p>
           <p>
             Aus diesen Merkmalen werden Punkte für „Fake“ und „Echt“ berechnet.
             Daraus entsteht eine prozentuale Einschätzung. Das Ergebnis ist
-            <strong>nur eine Hilfe zum Nachdenken</strong> und ersetzt keine
-            gründliche Recherche.
+            <strong>nur eine Einschätzung</strong> aber ersetzt keine
+            gründliche Recherche und auch auch keinen gesunden Menschnverstand.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- WICHTIG: Script einbinden -->
+  <!-- Wichtig LIAM!!! JS einbinden NICHT vergessen Liam!!!!!!! -->
   <script src="script.js"></script>
 </body>
 </html>
