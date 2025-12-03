@@ -6,17 +6,12 @@ Die Logik der Webseite ist ein Algorithmus der Den Eingegebenen Text nach auffä
 <br>
 <br>
 <br>
-Aus dem ergebniss vom Algorithmus wird dann ein Fake Anteil und ein Echt Anteil in Protzent Berechnet:
-``` 
-fakePercent = 50 + (fakeScore - realScore)
-realPercent = 100 - fakePercent
-```
 Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wird Fake halt erhöt und bei Echt wird der Real-Score erhöth. Was wie ins Gewicht fällt ist unten in der Tabelle zu sehen.
 <br><br>
 
 ### Folgende Sachen Werden Geprüft:
-| **Ausgabe** | **Auslöser** |
-|-------------|--------------|
+| **Ausgabe** | **Auslöser** | **+ -** |
+|-------------|--------------|---------|
 | Auffälige Überschrift/Wörter : | krass, unglaublich, kaum zu glauben, sprachlos, |
 | Zahlen/ Daten erkannt | Zahlen nummern und devinirte Werte |
 | Hinweis auf Qellen | "quelle", "laut", "studie", "bericht", "statistik", "bundesamt", "institut", "universität", "forscher", "wissenschaftler", "daten von", "zitiert", "berichtete", "faktencheck", "dpa", "reuters", "ap news" |
@@ -24,13 +19,24 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 | Vage oder unkonkrete Quellenangaben gefunde | "man sagt", "angeblich", "gerüchten zufolge", "ich habe gehört", "es heißt", "viele sagen" |
 | Stark Feindbildige Sprache | "die da oben", "elite", "volk", "verraten", "verrat", "betrügen", "marionetten", "system", "schuld", "volksverräter", "böse", "feind" |
 | Viele Ausrufezeichen | mehr als drei Ausrufezeichen |
-| Reißerische Sprache erkannt |  "skandal", "lüge", "lügenpresse", "unglaublich", "schockierend", "schock!", "hammer", "eskaliert", "endzeit", "katastrophe", "geheimnis", "verschwörung", "propaganda", "systemmedien", "was dir niemand sagt", "die wahrheit über", "wird dir nicht gefallen", "muss man gesehen haben", "für immer verändern" |
+| Reißerische / emotionale Sprache erkannt |  "skandal", "lüge", "lügenpresse", "unglaublich", "schockierend", "schock!", "hammer", "eskaliert", "endzeit", "katastrophe", "geheimnis", "verschwörung", "propaganda", "systemmedien", "was dir niemand sagt", "die wahrheit über", "wird dir nicht gefallen", "muss man gesehen haben", "für immer verändern" |
 | "Es wurden Links / URLs gefunden – das kann auf Weiterführende Quellen hinweisen. | Links im Text |
 | Wenig bis keine Ausrufezeichen und kaum Großschreibung | Wenig bis keine Ausrufezeichen und kaum Großschreibung
 | Relativ langer Text | Relativ langer Text|
 | Kombinationen wie „?!“ endeckt| Kombinationen mit ? und ! also:"!?" oder:"?!" |
 
+### Geplante Erweiterungen / Verbesserungen
+- funktion zum uploden eines Screenshots oder Fotos von einem Artikel oder Text.
 
-##### Copyright (C) 2025 of Liam and Farin 
-##### Distributed under the terms of the GNU General Public License v3.0
+- Link eingabe für die eingabe von einem Link zu einem Artikel oder Socialmedia post.
+
+- Serverseitige version bauen die Serverseitig lüft für eine einfachere verwaltung und handhabung der Kretterien usw.
+
+- Integration eines Ki Modells für eine Analyse über eine KI. evt. gmma 3.
+
+- EN Version.
+
+
+#### Copyright (C) 2025 of Liam and Farin 
+ - Distributed under the terms of the GNU General Public License v3.0
 
