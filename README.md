@@ -31,3 +31,6 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 | Kombinationen wie „?!“ endeckt| Kombinationen mit ? und ! also:"!?" oder:"?!" |
 
 
+##### Copyright (C) 2025 of Liam and Farin 
+##### Distributed under the terms of the GNU General Public License v3.0
+
