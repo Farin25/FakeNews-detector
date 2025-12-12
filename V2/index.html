@@ -3,120 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blurry Animated Dark Background</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      color: white;
-    }
-
-    /* Haupt-Hintergrund mit mehreren animierten Blobs */
-    .background {
-      position: fixed;
-      inset: 0;
-      background: #0a0a0a;
-      z-index: -2;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.6;
-      mix-blend-mode: screen;
-      animation: float 20s infinite ease-in-out;
-    }
-
-    .blob:nth-child(1) {
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, #ff006e, #8338ec);
-      top: -20%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .blob:nth-child(2) {
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, #3a86ff, #06ffa5);
-      bottom: -30%;
-      right: -15%;
-      animation-delay: -7s;
-    }
-
-    .blob:nth-child(3) {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, #fb5607, #ff006e);
-      top: 20%;
-      right: 10%;
-      animation-delay: -14s;
-    }
-
-    .blob:nth-child(4) {
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, #7209b7, #4895ef);
-      bottom: 10%;
-      left: 20%;
-      animation-delay: -3s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-      25% {
-        transform: translate(100px, -100px) rotate(90deg);
-      }
-      50% {
-        transform: translate(-80px, 120px) rotate(180deg);
-      }
-      75% {
-        transform: translate(120px, 80px) rotate(270deg);
-      }
-    }
-
-    /* Optional: Overlay für besseren Textkontrast */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
-      z-index: -1;
-    }
-
-    /* Demo-Inhalt */
-    .content {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
-
-    p {
-      font-size: 1.5rem;
-      opacity: 0.9;
-    }
-  </style>
+  <title>Fake News erkennen - Tipps & Tricks</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -129,12 +17,94 @@
 
   <div class="overlay"></div>
 
-  <div class="content">
-    <div>
-      <h1>Deine Webseite</h1>
-      <p>Blurry animierter Dark-Mode Hintergrund<br>100% CSS – super smooth & performant</p>
+  <header class="header">
+    <div class="header-content">
+      <h1>Fake-News Detektor</h1>
+      <p>Lerne, wie du Falschinformationen erkennst</p>
     </div>
-  </div>
+  </header>
 
+  <main class="content">
+    <section class="intro-section">
+      <h2>Was sind Fake News?</h2>
+      <p>Fake News sind bewusst verbreitete Falschinformationen oder irreführende Inhalte, die dazu dienen, zu täuschen, Panik auszulösen oder Meinungen zu manipulieren. Sie sind ein wachsendes Problem in der digitalen Welt.</p>
+    </section>
+
+    <section class="tips-section">
+      <h2>10 Tipps zum Erkennen von Fake News</h2>
+      
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">🔍</div>
+          <h3>Quelle überprüfen</h3>
+          <p>Überprüfe den Artikel auf Links und Quellen, wenn diese nicht vorhanden sind ist die ein indiz für unseriösigkeit und einen Fake Artikel.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">⚠️</div>
+          <h3>Sensationsüberschriften</h3>
+          <p>Reißerische oder übertriebene Überschriften mit vielen Ausrufezeichen sind oft ein Indiz für Fake News.Seriöse Artikel sind meistens schlicht und Sachlich formuliert.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">📰</div>
+          <h3>Mehrere Quellen nutzen</h3>
+          <p>Wichtige Nachrichten werden von mehreren seriösen Quellen berichtet. Wenn nur unbekannte Seiten über etwas berichten, sei skeptisch.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">📅</div>
+          <h3>Veröffentlichungsdatum prüfen</h3>
+          <p>Überalterte Inhalte werden manchmal als aktuelle News verbreitet.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">🖼️</div>
+          <h3>Bilder hinterfragen</h3>
+          <p>Bilder können manipuliert, aus dem Kontext gerissen oder mit KI gefälscht sein. Du kannst mit umgekehrter Bildsuche den uraprung der bilder finden.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">✍️</div>
+          <h3>Grammatik & Rechtschreibung</h3>
+          <p>Viele Fehler deuten auf unprofessionelle quellen hin. Seriöse Medien leektorieren ihre Inhalte sorgfältig.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">👤</div>
+          <h3>Autoren überprüfen</h3>
+          <p>Gibt es einen Namen und Kontakt des Autors? Fake-News-Seiten verstecken oft ihre Urheber</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">🔗</div>
+          <h3>Links überprüfen</h3>
+          <p>Benutze LinkcheckTools um zu serhen, wohin Links führen Verdächtige oder gekürzte Links sind ein Warnzeichen.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">😤</div>
+          <h3>Emotionale Reaktion</h3>
+          <p>Fake News sollen starke Emotionen auslösen (Wut, Angst). Nimm dir Zeit, bevor du teilst.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Testen Sie Artikel auf ihre Seriösigkeit</h2>
+      <p>Nutzen Sie unseren Fake-News-Detektor, um Texte zu analysieren und zu überprüfen.</p>
+      <a href="/beta F/index.html" class="cta-button">Zum Detektor</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Fake-News Detektor Demo Erstellt von Liam & Farin</p>
+      <p style="font-size: 0.85rem; opacity: 0.7;">Hinweis: Dieses Tool funktioniert NICHT fehlerfrei, Nutzen sie ofizielle dienste um ihre Artikel auf seriösigkeit überprüfen zu lassen.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
