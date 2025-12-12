@@ -1,0 +1,156 @@
+/* Examples Page Specific Styles */
+
+.examples-section {
+  margin-bottom: 3rem;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 153, 255, 0.15);
+}
+
+.examples-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00ccff;
+  text-align: center;
+}
+
+.example-card {
+  background: rgba(0, 51, 102, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.example-card:hover {
+  background: rgba(0, 102, 153, 0.4);
+  border-color: rgba(0, 204, 255, 0.4);
+}
+
+.example-card.legitimate {
+  border-color: rgba(0, 200, 100, 0.3);
+}
+
+.example-card.legitimate:hover {
+  background: rgba(0, 100, 50, 0.3);
+  border-color: rgba(0, 200, 100, 0.5);
+}
+
+.example-card h3 {
+  color: #00ccff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.example-card.legitimate h3 {
+  color: #00c864;
+}
+
+.example-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 3px solid #0099ff;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.example-card.legitimate .example-box {
+  border-left-color: #00c864;
+}
+
+.example-text {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+.copy-btn {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #0099ff, #00ccff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.copy-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 153, 255, 0.3);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #00c864, #00ff99);
+}
+
+.copy-btn.copied .copy-text::before {
+  content: '✓ ';
+}
+
+.copy-btn.copied .copy-text::after {
+  content: ' Kopiert!';
+}
+
+.cta-hint {
+  text-align: center;
+  border: 1px solid rgba(0, 204, 255, 0.3);
+}
+
+.cta-hint h2 {
+  color: #00ccff;
+}
+
+.cta-hint p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Scrollbar styling */
+.example-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.example-box::-webkit-scrollbar-track {
+  background: rgba(0, 153, 255, 0.1);
+  border-radius: 3px;
+}
+
+.example-box::-webkit-scrollbar-thumb {
+  background: rgba(0, 153, 255, 0.4);
+  border-radius: 3px;
+}
+
+.example-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 153, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .examples-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .examples-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .example-card h3 {
+    font-size: 1rem;
+  }
+
+  .copy-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
