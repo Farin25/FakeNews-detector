@@ -458,3 +458,81 @@ mark.hl-extra {
     font-size: 1.7rem;
   }
 }
+/* === ANIMIERTER BLOB-HINTERGRUND (aus CSS1) – minimal angepasst für CSS2 === */
+.background-blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  animation: float 22s infinite ease-in-out;
+}
+
+.blob:nth-child(1) {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, #6366f1, #120075);
+  top: -15%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.blob:nth-child(2) {
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, #1a1a4d, #2a4d7f);
+  bottom: -35%;
+  right: -20%;
+  animation-delay: -8s;
+}
+
+.blob:nth-child(3) {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #00ccff, #0099ff);
+  top: 15%;
+  right: 5%;
+  animation-delay: -15s;
+}
+
+.blob:nth-child(4) {
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, #004d99, #003d7a);
+  bottom: 5%;
+  left: 15%;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(120px, -120px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-100px, 140px) rotate(180deg);
+  }
+  75% {
+    transform: translate(140px, 100px) rotate(270deg);
+  }
+}
+
+/* Optional: leichter Overlay damit der Text besser lesbar bleibt */
+.background-blobs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
