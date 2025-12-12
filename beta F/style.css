@@ -1,6 +1,4 @@
 :root {
-  --bg: #020617;
-  --bg-elevated: #020617;
   --card-bg: #020617;
   --card-border: rgba(148, 163, 184, 0.35);
   --accent: #6366f1;
@@ -20,6 +18,66 @@
 *::after {
   box-sizing: border-box;
 }
+
+/* ===== Blob Background ===== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #0b0f1a;
+  overflow-x: hidden;
+}
+
+/* Container für die Blobs */
+.background-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Gemeinsame Blob-Eigenschaften */
+.blob {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.6;
+  animation: blobFloat 30s ease-in-out infinite;
+}
+
+/* Einzelne Blobs */
+.blob.blob-1 {
+  background: #6a5cff;
+  top: -120px;
+  left: -120px;
+}
+
+.blob.blob-2 {
+  background: #ff5c8a;
+  bottom: -160px;
+  right: -120px;
+  animation-delay: -10s;
+}
+
+.blob.blob-3 {
+  background: #2fdcff;
+  top: 40%;
+  left: 60%;
+  animation-delay: -20s;
+}
+
+/* Animation */
+@keyframes blobFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(60px, -40px) scale(1.1); }
+  66%  { transform: translate(-40px, 60px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
 
 html,
 body {
