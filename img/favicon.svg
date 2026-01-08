@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Eye Outline -->
+  <path d="M256 128C166 128 94 192 64 256C94 320 166 384 256 384C346 384 418 320 448 256C418 192 346 128 256 128Z"
+        stroke="#1A1A1A" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Pupil -->
+  <circle cx="256" cy="256" r="64" stroke="#1A1A1A" stroke-width="32"/>
+  <!-- Check (grün) -->
+  <path d="M192 256L234 298L320 210" stroke="#0F9D58" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cross (rot) -->
+  <path d="M320 256L288 288" stroke="#DB4437" stroke-width="32" stroke-linecap="round"/>
+  <path d="M288 256L320 288" stroke="#DB4437" stroke-width="32" stroke-linecap="round"/>
+</svg>

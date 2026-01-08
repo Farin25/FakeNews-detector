@@ -32,8 +32,11 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 - Jahr im Footer Aktualliesiert zu 2026.
 - Link auf der Beispieltext seite korrigiert.
 - About Seite Angefangen
+- Favicon hinzugefügt
 
 ### Geplante Erweiterungen / Verbesserungen
+
+- vernünftiger Header
 
 - About Site
 
