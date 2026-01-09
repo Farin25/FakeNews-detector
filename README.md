@@ -40,6 +40,8 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 
 - About Site
 
+- CSS Zusammenführen und aufräumen
+
 - funktion zum uploden eines Screenshots oder Fotos von einem Artikel oder Text.
 
 - Link eingabe für die eingabe von einem Link zu einem Artikel oder Socialmedia post.
@@ -65,5 +67,5 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 
 
 #### Copyright (C) 2025 of Liam and Farin 
- - Distributed under the terms of the GNU General Public License v3.0
+ - Distributed under the terms of the MIT License.
 
