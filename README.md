@@ -34,6 +34,11 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 - About Seite Angefangen
 - Favicon hinzugefügt
 
+## V1.5       
+**7.01.2026**  
+- Podcast von Johannah hinzugefügt.
+- bug fixes
+
 ### Geplante Erweiterungen / Verbesserungen
 
 - vernünftiger Header
@@ -50,7 +55,9 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 
 - Integration eines Ki Modells für eine Analyse über eine KI. evt. gmma 3.
 
-- EN Version.
+- Werbe Sticker
+
+- (EN Version.)
 
 
 #### Copyright (C) 2026 of Liam and Farin 
