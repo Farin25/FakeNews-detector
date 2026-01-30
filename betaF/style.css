@@ -105,6 +105,66 @@ body {
   padding: 0 16px;
 }
 
+.header {
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 153, 255, 0.2);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 153, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.header-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #00ccff, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0.7rem 1.5rem;
+  background: rgba(0, 153, 255, 0.2);
+  color: #00ccff;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 153, 255, 0.4);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  background: rgba(0, 153, 255, 0.4);
+  border-color: #00ccff;
+  box-shadow: 0 4px 12px rgba(0, 204, 255, 0.3);
+}
+
+
 .footer {
   position: relative;
   z-index: 10;
@@ -549,65 +609,6 @@ mark.hl-extra {
 
 
 
-/* Header */
-.header {
-  position: relative;
-  z-index: 10;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 153, 255, 0.2);
-  padding: 3rem 2rem;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 153, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.header-content {
-  flex: 1;
-  min-width: 250px;
-}
-
-.header-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #00ccff, #0099ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.header-content p {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.header-nav {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.nav-link {
-  padding: 0.7rem 1.5rem;
-  background: rgba(0, 153, 255, 0.2);
-  color: #00ccff;
-  text-decoration: none;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 153, 255, 0.4);
-  transition: all 0.3s ease;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.nav-link:hover {
-  background: rgba(0, 153, 255, 0.4);
-  border-color: #00ccff;
-  box-shadow: 0 4px 12px rgba(0, 204, 255, 0.3);
-}
 
 .version {
   padding-top: -5px;
@@ -623,4 +624,158 @@ mark.hl-extra {
   font-weight: normal;
   color: rgba(255, 255, 255, 0.7);
   margin: 0.5rem 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 3rem 2rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tip-card {
+  background: rgba(0, 51, 102, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tip-card:hover {
+  transform: translateY(-8px);
+  background: rgba(0, 102, 153, 0.5);
+  border-color: rgba(0, 204, 255, 0.5);
+  box-shadow: 0 12px 24px rgba(0, 153, 255, 0.2);
+  cursor: grab;
+}
+
+.tip-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tip-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #00ccff;
+}
+
+.tip-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #0099ff, #00ccff);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 153, 255, 0.3);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 204, 255, 0.5);
+  background: linear-gradient(135deg, #00ccff, #0099ff);
+}
+
+.podcast {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 153, 255, 0.15);
+}
+
+.podcast h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #00ccff;
+  text-align: center;
+}
+
+.player {
+  width: 100%;
+  outline: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 153, 255, 0.2);
+}
+
+.podcast p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.intro-section, .tips-section, .cta-section, .podcast { 
+  margin-bottom: 3rem;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 153, 255, 0.15);
+}
+
+.intro-section h2, .tips-section h2, .cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #00ccff;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 3rem 2rem;
+  text-align: center;
 }
