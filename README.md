@@ -35,7 +35,7 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 - Favicon hinzugefügt
 
 ## V1.5       
-**7.01.2026**  
+**22.01.2026**  
 - Podcast von Johannah hinzugefügt.
 - bug fixes
 
