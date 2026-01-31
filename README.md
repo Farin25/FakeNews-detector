@@ -10,20 +10,7 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 <br><br>
 
 ### Folgende Sachen Werden Geprüft:
-| **Ausgabe** | **Auslöser** | **+ -** |
-|-------------|--------------|---------|
-| Auffälige Überschrift/Wörter : | krass, unglaublich, kaum zu glauben, sprachlos, |
-| Zahlen/ Daten erkannt | Zahlen nummern und devinirte Werte |
-| Hinweis auf Qellen | "quelle", "laut", "studie", "bericht", "statistik", "bundesamt", "institut", "universität", "forscher", "wissenschaftler", "daten von", "zitiert", "berichtete", "faktencheck", "dpa", "reuters", "ap news" |
-| Sehr kurtzer Text | Unter 25 Wörtern |
-| Vage oder unkonkrete Quellenangaben gefunde | "man sagt", "angeblich", "gerüchten zufolge", "ich habe gehört", "es heißt", "viele sagen" |
-| Stark Feindbildige Sprache | "die da oben", "elite", "volk", "verraten", "verrat", "betrügen", "marionetten", "system", "schuld", "volksverräter", "böse", "feind" |
-| Viele Ausrufezeichen | mehr als drei Ausrufezeichen |
-| Reißerische / emotionale Sprache erkannt |  "skandal", "lüge", "lügenpresse", "unglaublich", "schockierend", "schock!", "hammer", "eskaliert", "endzeit", "katastrophe", "geheimnis", "verschwörung", "propaganda", "systemmedien", "was dir niemand sagt", "die wahrheit über", "wird dir nicht gefallen", "muss man gesehen haben", "für immer verändern" |
-| "Es wurden Links / URLs gefunden – das kann auf Weiterführende Quellen hinweisen. | Links im Text |
-| Wenig bis keine Ausrufezeichen und kaum Großschreibung | Wenig bis keine Ausrufezeichen und kaum Großschreibung
-| Relativ langer Text | Relativ langer Text|
-| Kombinationen wie „?!“ endeckt| Kombinationen mit ? und ! also:"!?" oder:"?!" |
+
 
 ### Changelog
 
@@ -44,13 +31,23 @@ Beim berechen ist der Grundaufbau 50/50 und pro endektes Kreterium für Fake wir
 - CSS Zusammengefügt.
 - vorbereitung für Backend.
 
-### Geplante Erweiterungen / Verbesserungen
+## V1.7     
+**23.01.2026**  
+- CSS Zusammengefügt.
+- Beispiel Seite entfernt.
+
+### Aktuelle Entwicklungen 
+
+- Beispiele auf zu Detectorseite.
+- Readme Updaten und auf Aktuellen Stand bringen
+
+#### - Server Version
+- Code (Frontend) aufräumen und für Server vorbereiten.
+
+### Geplante Erweiterungen / Verbesserungen Später
 
 - vernünftiger Header
 
-- About Site
-
-- CSS Zusammenführen und aufräumen
 
 - funktion zum uploden eines Screenshots oder Fotos von einem Artikel oder Text.
 

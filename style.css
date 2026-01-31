@@ -779,3 +779,16 @@ mark.hl-extra {
   padding: 3rem 2rem;
   text-align: center;
 }
+
+.fl {
+  text-decoration: none;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.5rem 0;
+}
+
+.mussleider {
+  margin-left: 1rem;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.7);
+}
